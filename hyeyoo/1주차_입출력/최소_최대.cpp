@@ -6,8 +6,10 @@ int		main(void)
 {
 	int n, ans_min, ans_max, num;
 
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
 	cin >> n;
-	ans_max = 1;
+	ans_max = -1000000;
 	ans_min = 1000000;
 
 	while (n--)
