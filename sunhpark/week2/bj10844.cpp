@@ -1,27 +1,50 @@
 #include <iostream>
+#define mod 1000000000
 using namespace std;
 
-int		dp[101] = {0,};
+int        dp[101][10];
 
-int		stairNumber(int		n)
+void    initDp()
 {
-	if (n == 1)
-		return 9;
-	else if (dp[n] > 0)
-		return dp[n];
-	else
-	{
-		dp[n] = 2 * stairNumber(n - 1) - (n - 1);
-		return dp[n];
-	}
+    for (int i = 1; i <= 9; ++i)
+    {
+        dp[1][i] = 1;
+    }
 }
 
-int		main(void)
+long long int    findDp(int    n)
 {
-	int		n;
+    long    long    int        sum = 0;
 
-	cin >> n;
-	cout << stairNumber(n);
+    for (int i = 2; i <= n; ++i)
+    {
+        for (int j = 0; j <= 9; ++j)
+        {
+            if (j == 0)
+                dp[i][j] = dp[i - 1][j + 1];
+            else if (j == 9)
+                dp[i][j] = dp[i - 1][j - 1];
+            else
+                dp[i][j] = (dp[i - 1][j - 1] + dp[i - 1][j + 1]) % mod;
+        }
+    }
 
-	return 0;
+    for (int i = 0; i <= 9; ++i)
+    {
+        sum += dp[n][i];
+    }
+
+    return (sum);
+}
+
+int        main(void)
+{
+    int        n;
+    
+    initDp();
+    cin >> n;
+
+    cout << findDp(n) % mod << endl;
+
+    return (0);
 }
