@@ -6,7 +6,7 @@
 /*   By: kylee <kylee@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 12:55:39 by kylee             #+#    #+#             */
-/*   Updated: 2020/08/16 13:20:24 by kylee            ###   ########.fr       */
+/*   Updated: 2020/08/19 22:52:15 by kylee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main(void)
 {
 	int n, i, in, m, ret;
 	vector<int>::iterator temp;
+	vector<int>::iterator temp2;
 
 	cin.tie(NULL);
 	cout.tie(NULL);
@@ -41,6 +42,9 @@ int main(void)
 		cin >> in;
 		ret = 0;
 		temp = lower_bound(list.begin(), list.end(), in);
+		temp2 = upper_bound(list.begin(), list.end(), in);
+		cout << temp2 - temp << " ";
+		/*
 		if (*temp == in)
 		{
 			while (*temp == in)
@@ -50,6 +54,7 @@ int main(void)
 			}
 		}
 		cout << ret << " ";
+		*/
 		i++;
 	}
 }
