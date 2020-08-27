@@ -9,15 +9,13 @@ using namespace std;
 const int NONE = 0;
 const int WHITE = 1;
 const int BLACK = 2;
+int *color;
 
-bool is_bipartite(map<int, vector<int> > graph, int v)
+bool is_bipartite(int start, map<int, vector<int> > graph, int v)
 {
-	int color[v + 1];
-	queue<int> q;
-	
-	fill_n(color, v + 1, NONE);
-	q.push(1);
-	color[1] = WHITE;
+	queue<int> q;	
+	q.push(start);
+	color[start] = WHITE;
 
 	while (!q.empty()) {
 		int u = q.front();
@@ -43,13 +41,26 @@ int		main(void)
 		int v, e;
 		cin >> v >> e;
 		map<int, vector<int> > graph;
-		
+		color = new int[v + 1];
+		fill_n(color, v + 1, NONE);
+
 		while(e--) {
 			int s, e;
 			cin >> s >> e;
 			graph[s].push_back(e);
 			graph[e].push_back(s);
 		}
-		cout << (is_bipartite(graph, v) ? "YES" : "NO") << endl;
+
+		bool is_yes = true;
+		for(int i = 1; i <= v; i++) {
+			if (color[i])
+				continue;
+			if (!is_bipartite(i, graph, v)) {
+				is_yes = false;
+				break;
+			}
+		}
+		cout << (is_yes ? "YES" : "NO") << endl;
+		delete[] color;
 	}
 }
