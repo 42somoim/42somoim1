@@ -6,7 +6,7 @@
 /*   By: hyeyoo <hyeyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/04 22:53:01 by hyeyoo            #+#    #+#             */
-/*   Updated: 2020/09/04 23:09:02 by hyeyoo           ###   ########.fr       */
+/*   Updated: 2020/09/04 23:17:17 by hyeyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 using namespace std;
 
-int		getMax(int *arr, int size)
+long		getMax(long *arr, long size)
 {
-	int ans = arr[0];
-	for (int i = 1; i < size; i++)
+	long ans = arr[0];
+	for (long i = 1; i < size; i++)
 		ans = max(ans, arr[i]);
 	return ans;
 }
 
-int		getAmount(int *lan, int size, int len)
+long		getAmount(long *lan, long size, long len)
 {
-	int amount = 0;
-	for (int i = 0; i < size; i++)
+	long amount = 0;
+	for (long i = 0; i < size; i++)
 		amount += (lan[i] / len);
 	return amount;
 }
 
-int		solve(int n, int k, int *lan)
+long		solve(long n, long k, long *lan)
 {
-	int low = 0, high = getMax(lan, k);
-	int ans = 0;
+	long low = 0, high = 2147483647;
+	long ans = 0;
 	while (low <= high) {
-		int mid = (low + high) / 2;
-		int amount = getAmount(lan, k, mid);
+		long mid = (low + high) / 2;
+		long amount = getAmount(lan, k, mid);
 		if (amount >= n) {
 			low = mid + 1;
 			ans = mid;
@@ -49,11 +49,11 @@ int		solve(int n, int k, int *lan)
 
 int		main(void)
 {
-	int n, k, *lan;
+	long n, k, *lan;
 	cin >> k >> n;
 
-	lan = new int[k];
-	for (int i = 0; i < k; i++)
+	lan = new long[k];
+	for (long i = 0; i < k; i++)
 		cin >> lan[i];
 	cout << solve(n, k, lan);
 	delete[] lan;
