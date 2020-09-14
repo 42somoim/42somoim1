@@ -6,7 +6,7 @@
 /*   By: hyeyoo <hyeyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 19:53:09 by hyeyoo            #+#    #+#             */
-/*   Updated: 2020/09/14 20:20:50 by hyeyoo           ###   ########.fr       */
+/*   Updated: 2020/09/14 20:24:56 by hyeyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int   main(void)
   P minho_from, minho_to, kangho_from, kangho_to;
   cin >> minho_from.first >> minho_from.second;
   cin >> minho_to.first >> minho_to.second;
-  cin >> kangho_from.first >> kangho_to.second;
-  cin >> kangho_from.first >> kangho_to.second;
+  cin >> kangho_from.first >> kangho_from.second;
+  cin >> kangho_to.first >> kangho_to.second;
 
-  double low = 0, high = 0, p = 0, q = 0, ans = 10e5;
+  double low = 0, high = 100, p = 0, q = 0, ans = 10e5;
   while (high - low >= 1e-6) {
     p = (2 * low + high) / 3;
     q = (low + 2 * high) / 3;
@@ -54,6 +54,8 @@ int   main(void)
     else
       high = q;
   }
+  cout.setf(ios::fixed);
+  cout.precision(7);
   cout << ans << endl;
   return 0;
 }
