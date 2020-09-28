@@ -13,6 +13,7 @@
 
 #### 규칙
 - 문제 풀이 기한은 2주로 한다 (못 지킬시 벌금 3,000원)
+  - 단, 1주차에 미리 못 풀었다고 이야기 하면 면제
 
 #### 커리큘럼
 - [plzrun님의 글 : 알고리즘 문제풀이(PS) 시작하기](https://plzrun.tistory.com/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4PS-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)
