@@ -12,6 +12,8 @@ void	repeat(string & s, char c, int len)
 
 int		main(void)
 {
+	cin.tie(NULL);
+	ios_base::sync_with_stdio(false);
 	int R, C;
 	int **map;
 	string ans;
@@ -57,52 +59,52 @@ int		main(void)
 		for (int i = 0; i < R; i++) {
 			for(int j = 0; j < C; j++) {
 				if ((i + j) % 2 == 1) {
-					if (map[i][j] < map[min_x][min_y]) {
-						min_y = j;
-						min_x = i;
+					if (map[i][j] < map[min_y][min_x]) {
+						min_y = i;
+						min_x = j;
 					}
 				}
 			}
 		}
 
 		int x1 = 0, y1 = 0;
-		int x2 = R - 1, y2 = C - 1;
+		int x2 = C - 1, y2 = R - 1;
 
-		while (x2 - x1 > 1) {
-			if (x1 / 2 < min_x / 2) {
+		while (y2 - y1 > 1) {
+			if (y1 / 2 < min_y / 2) {
 				repeat(ans, 'R', C - 1);
 				repeat(ans, 'D', 1);
 				repeat(ans, 'L', C - 1);
 				repeat(ans, 'D', 1);
-				x1 += 2;
+				y1 += 2;
 			}
-			if (min_x / 2 < x2 / 2) {
+			if (min_y / 2 < y2 / 2) {
 				repeat(rev_ans, 'R', C - 1);
 				repeat(rev_ans, 'D', 1);
 				repeat(rev_ans, 'L', C - 1);
 				repeat(rev_ans, 'D', 1);
-				x2 -= 2;
-			}
-		}
-
-		while (y2 - y1 > 1) {
-			if (y1 / 2 < min_y / 2) {
-				repeat(ans, 'D', 1);
-				repeat(ans, 'R', 1);
-				repeat(ans, 'U', 1);
-				repeat(ans, 'R', 1);
-				y1 += 2;
-			}
-			if (min_y / 2 < y2 / 2) {
-				repeat(rev_ans, 'D', 1);
-				repeat(rev_ans, 'R', 1);
-				repeat(rev_ans, 'U', 1);
-				repeat(rev_ans, 'R', 1);
 				y2 -= 2;
 			}
 		}
 
-		if (min_y == y1) {
+		while (x2 - x1 > 1) {
+			if (x1 / 2 < min_x / 2) {
+				repeat(ans, 'D', 1);
+				repeat(ans, 'R', 1);
+				repeat(ans, 'U', 1);
+				repeat(ans, 'R', 1);
+				x1 += 2;
+			}
+			if (min_x / 2 < x2 / 2) {
+				repeat(rev_ans, 'D', 1);
+				repeat(rev_ans, 'R', 1);
+				repeat(rev_ans, 'U', 1);
+				repeat(rev_ans, 'R', 1);
+				x2 -= 2;
+			}
+		}
+
+		if (min_x == x1) {
 			repeat(ans, 'R', 1);
 			repeat(ans, 'D', 1);
 		} else {
