@@ -17,8 +17,8 @@
 #### 커리큘럼
 - [plzrun님의 글 : 알고리즘 문제풀이(PS) 시작하기](https://plzrun.tistory.com/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4PS-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)
 - 위 글에 나온 문제 셋들을 문제집으로 만들어서 하나씩 풀어본 후, 종만북으로 넘어갈 생각입니다. (2권 부터!)
-- ![curriculum](https://github.com/hygoni/42somoim/raw/master/img/problem_set.png)
-- 종만북 링크 :
+![curriculum](https://github.com/hygoni/42somoim/raw/master/img/problem_set.png)
+- 종만북 :
 <a href="http://www.yes24.com/Product/Goods/8006522">
   <img src="https://github.com/hygoni/42somoim/raw/master/img/book.jpeg" width="300" height="300">
 </a>
