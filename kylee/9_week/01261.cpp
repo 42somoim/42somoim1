@@ -6,7 +6,7 @@
 /*   By: kylee <kylee@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 17:01:53 by kylee             #+#    #+#             */
-/*   Updated: 2020/10/12 18:14:55 by kylee            ###   ########.fr       */
+/*   Updated: 2020/10/14 18:57:03 by kylee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 using namespace std;
 #define MAX 100000
 #define MIN(a, b)
-int list[105][105][2];
+int list[105][105][3];
 typedef pair<int, pair<int, int> > T;
 priority_queue< T, vector< T >, greater< T > > q;
 
@@ -62,41 +62,45 @@ int main(void)
 		temp = q.top();
 		q.pop();
 		test++;
-		cout << test << " " <<  temp.second.first << " " << temp.second.second << "\n";
+		//cout << test << " " <<  temp.second.first << " " << temp.second.second << "\n";
 		if (temp.second.first == m - 1 && temp.second.second == n - 1)
 		{
 			break ;
 		}
-		if (temp.second.first != 0)
+		if (list[temp.second.first][temp.second.second][2] == 0)
 		{
-			if (list[temp.second.first][temp.second.second][1] < list[temp.second.first - 1][temp.second.second][1])
+			list[temp.second.first][temp.second.second][2] = 1;
+			if (temp.second.first != 0)
 			{
-				list[temp.second.first - 1][temp.second.second][1] = list[temp.second.first][temp.second.second][1] + list[temp.second.first - 1][temp.second.second][0];
-				q.push({list[temp.second.first - 1][temp.second.second][1], {temp.second.first-1, temp.second.second} });
+				if (list[temp.second.first][temp.second.second][1] < list[temp.second.first - 1][temp.second.second][1])
+				{
+					list[temp.second.first - 1][temp.second.second][1] = list[temp.second.first][temp.second.second][1] + list[temp.second.first - 1][temp.second.second][0];
+					q.push({list[temp.second.first - 1][temp.second.second][1], {temp.second.first-1, temp.second.second} });
+				}
 			}
-		}
-		if (temp.second.first != m - 1)
-		{
-			if (list[temp.second.first][temp.second.second][1] < list[temp.second.first + 1][temp.second.second][1])
+			if (temp.second.first != m - 1)
 			{
-				list[temp.second.first + 1][temp.second.second][1] = list[temp.second.first][temp.second.second][1] + list[temp.second.first + 1][temp.second.second][0];
-				q.push({list[temp.second.first + 1][temp.second.second][1], {temp.second.first+1, temp.second.second} });
+				if (list[temp.second.first][temp.second.second][1] < list[temp.second.first + 1][temp.second.second][1])
+				{
+					list[temp.second.first + 1][temp.second.second][1] = list[temp.second.first][temp.second.second][1] + list[temp.second.first + 1][temp.second.second][0];
+					q.push({list[temp.second.first + 1][temp.second.second][1], {temp.second.first+1, temp.second.second} });
+				}
 			}
-		}
-		if (temp.second.second != n - 1)
-		{
-			if (list[temp.second.first][temp.second.second][1] < list[temp.second.first][temp.second.second + 1][1])
+			if (temp.second.second != n - 1)
 			{
-				list[temp.second.first][temp.second.second + 1][1] = list[temp.second.first][temp.second.second][1] + list[temp.second.first][temp.second.second + 1][0];
-				q.push({list[temp.second.first][temp.second.second+1][1], {temp.second.first, temp.second.second+1} });
+				if (list[temp.second.first][temp.second.second][1] < list[temp.second.first][temp.second.second + 1][1])
+				{
+					list[temp.second.first][temp.second.second + 1][1] = list[temp.second.first][temp.second.second][1] + list[temp.second.first][temp.second.second + 1][0];
+					q.push({list[temp.second.first][temp.second.second+1][1], {temp.second.first, temp.second.second+1} });
+				}
 			}
-		}
-		if (temp.second.second != 0)
-		{
-			if (list[temp.second.first][temp.second.second][1] < list[temp.second.first][temp.second.second - 1][1])
+			if (temp.second.second != 0)
 			{
-				list[temp.second.first][temp.second.second - 1][1] = list[temp.second.first][temp.second.second][1] + list[temp.second.first][temp.second.second - 1][0];
-				q.push({list[temp.second.first][temp.second.second-1][1], {temp.second.first, temp.second.second-1} });
+				if (list[temp.second.first][temp.second.second][1] < list[temp.second.first][temp.second.second - 1][1])
+				{
+					list[temp.second.first][temp.second.second - 1][1] = list[temp.second.first][temp.second.second][1] + list[temp.second.first][temp.second.second - 1][0];
+					q.push({list[temp.second.first][temp.second.second-1][1], {temp.second.first, temp.second.second-1} });
+				}
 			}
 		}
 
