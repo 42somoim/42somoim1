@@ -17,7 +17,6 @@ int main()
 		if (i % 3 == 0)
 			result[i] = min(result[i], result[i / 3] + 1);
 	}
-
 	cout << result[n];
 	return (0);
 }
