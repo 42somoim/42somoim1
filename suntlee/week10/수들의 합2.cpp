@@ -6,7 +6,7 @@ int main(void)
 {
 	int N, M, i;
 	int l = 0, h = 0, cnt = 0, sum = 0;
-	int arr[10ㅋㅋ000];
+	int arr[10000];
 
 	cin >> N >> M;
 	for (i = 0; i < N; i++)
