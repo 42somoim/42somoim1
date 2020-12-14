@@ -2,7 +2,7 @@
 
 using namespace std;
 
-constexpr int MAX = 20;
+constexpr int MAX = 40;
 int N, S, result = 0;
 int arr[MAX];
 
