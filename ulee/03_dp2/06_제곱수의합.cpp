@@ -5,7 +5,7 @@
 using namespace std;
 int main()
 {
-    int N, max_sum;
+    int N;
     vector<int> dp(100001, 0);
 
     cin >> N;
