@@ -1,4 +1,4 @@
-# Sick Knight is placed in the left-bottom of the N x M size board.
+d# Sick Knight is placed in the left-bottom of the N x M size board.
 # it can move :
 ## 2 up, 1 right
 ## 1 up, 2 right
@@ -13,9 +13,8 @@
 
 N, M = map(int, input().split());
 
-# 세로 길이가 충분한 경우 ( N >= 3 )
 if N >= 3 :
-	if M >= 6 :
+	if M > 6 :
 		print(M - 2)
 	else :
 		if M >= 4 :
@@ -24,11 +23,8 @@ if N >= 3 :
 			print(M)
 elif N == 2 :
 	if M >= 8 :
-		print('4');
+		print('4')
 	else :
-		if M % 2 :
-			print(M // 2 + 1)
-		else :
-			print(M // 2)
+		print((M + 1) // 2)
 else : 
 	print('1')
